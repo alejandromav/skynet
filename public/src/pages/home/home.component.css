@@ -1,0 +1,15 @@
+.wrapper {
+	position: absolute;
+	display: block;
+	top: 50px;
+	width: 100vw;
+	min-height: calc(100vh - 50px);
+	padding: 20px 16px;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 2em;
+	padding: 0;
+
+}

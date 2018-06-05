@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>SkyNet</title>
+	<base href="/">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+</head>
+<body>
+	<style media="screen">
+		.spinner {
+			width: 40px;
+			height: 40px;
+
+			position: relative;
+			margin: 0 auto;
+		}
+
+		.double-bounce1, .double-bounce2 {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			background-color: #333;
+			opacity: 0.6;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			-webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+			animation: sk-bounce 2.0s infinite ease-in-out;
+		}
+
+		.double-bounce2 {
+			-webkit-animation-delay: -1.0s;
+			animation-delay: -1.0s;
+		}
+
+		@-webkit-keyframes sk-bounce {
+			0%, 100% { -webkit-transform: scale(0.0) }
+			50% { -webkit-transform: scale(1.0) }
+		}
+
+		@keyframes sk-bounce {
+			0%, 100% {
+				transform: scale(0.0);
+				-webkit-transform: scale(0.0);
+			} 50% {
+				transform: scale(1.0);
+				-webkit-transform: scale(1.0);
+			}
+		}
+	</style>
+	<script type="text/javascript">
+		window.onmousemove = e => {
+			let event = e || window.event;
+			mousePos = { x: e.clientX, y: e.clientY };
+		}
+	</script>
+	<div id="preloader" class="spinner" style="margin-top: calc(50vh - 20px)">
+		<div class="double-bounce1"></div>
+		<div class="double-bounce2"></div>
+	</div>
+	<app-root></app-root>
+</body>
+</html>

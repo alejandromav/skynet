@@ -1,0 +1,18 @@
+@media only screen and (max-width: 900px) {
+	.wrapper.home {
+		height: auto;
+		min-height: 100vh;
+	}
+
+	.wrapper.home .left {
+		position: relative;
+		display: block;
+		width: 100vw;
+		height: auto;
+		min-height: 100vh;
+		padding: 1.5em;
+	}
+	.wrapper.home .right {
+		display: none;
+	}
+}

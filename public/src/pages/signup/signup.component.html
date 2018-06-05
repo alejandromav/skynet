@@ -1,0 +1,57 @@
+<div class="wrapper home">
+	<div class="left inline-block">
+		<h1>Welcome to <strong>SkyNet</strong></h1>
+		<h3>Please sign up</h3>
+
+		<form id="signup-form" (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+			<label>Name</label>
+			<input id="name" class="form-control" formControlName="name" placeholder="John Doe" required>
+			<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-error">
+				<div *ngIf="name.errors.required"><p>Name is required.</p></div>
+			</div>
+
+			<label>Username</label>
+			<input id="username" class="form-control" formControlName="username" placeholder="john.doe" required autocapitalize=off>
+			<div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-error">
+				<div *ngIf="username.errors.required"><p>Username is required.</p></div>
+			</div>
+
+			<label>Email</label>
+			<input id="email" class="form-control" formControlName="email" placeholder="john.doe@foo.com" required>
+			<div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-error">
+				<div *ngIf="email.errors.required"><p>Email is required.</p></div>
+				<div *ngIf="email.errors.email"><p>Not a valid email</p></div>
+			</div>
+
+			<label>Password</label>
+			<input type="password" name="password" formControlName="password" placeholder="*********" autocapitalize=off>
+			<div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-error">
+				<div *ngIf="password.errors.required"><p>Password is required.</p></div>
+			</div>
+			<div *ngIf="error" class="alert alert-error">
+				<div class="">
+					<span class="lnr-notification"></span>
+					<p>{{error}}</p>
+				</div>
+			</div>
+
+			<div class="loader">
+				<div *ngIf="loading" class="sk-folding-cube sk-folding-cube-small">
+					<div class="sk-cube1 sk-cube"></div>
+					<div class="sk-cube2 sk-cube"></div>
+					<div class="sk-cube4 sk-cube"></div>
+					<div class="sk-cube3 sk-cube"></div>
+				</div>
+			</div>
+
+			<footer *ngIf="!loading">
+				<button type="submit" class="btn btn-primary">Sign up</button>
+				<!-- <button type="submit" class="btn btn-secondary">Register</button> -->
+			</footer>
+		</form>
+
+		<footer>Already have an account? <a href="/login">Login</a></footer>
+	</div><div class="right inline-block">
+
+	</div>
+</div>

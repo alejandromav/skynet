@@ -1,0 +1,259 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+	font-family: 'Monaco';
+	src: url('assets/fonts/monaco.ttf') format('truetype');
+}
+
+* {
+	font-family: 'Open Sans', sans-serif;
+	box-sizing: border-box;
+	color: #333;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: #f4f4f4;
+	overflow: hidden;
+}
+
+h1 {
+	font-weight: normal;
+	padding: 20px 0;
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+}
+
+.fixed {
+	position: fixed;
+	display: block;
+}
+
+.inline-block {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.shadow {
+	-webkit-box-shadow: 0 0 6px 3px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 0 6px 3px rgba(0,0,0,.2);
+	-o-box-shadow: 0 0 6px 3px rgba(0,0,0,.2);
+	box-shadow: 0 0 6px 3px rgba(0,0,0,.2);
+}
+
+.animated {
+	-webkit-animation-duration: .4s !important;
+	-moz-animation-duration: .4s !important;
+	-o-animation-duration: .4s !important;
+	animation-duration: .4s !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+*.unselectable {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+
+	/*
+	 Introduced in IE 10.
+	 See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+	*/
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.red {
+	color: rgb(231, 76, 60);;
+}
+
+input {
+	border: none;
+	outline: none !important;
+	box-shadow: none !important;
+	border-bottom: 1px solid #999;
+	font-size: 1em;
+	border-radius: 0;
+}
+input:disabled {
+	background: none;
+	opacity: .5;
+}
+
+button.btn {
+	border: none;
+	box-shadow: none;
+	outline: none !important;
+	padding: 8px 15px;
+	border: 2px solid #666;
+	color: #666;
+	border-radius: 4px;
+	font-size: 12px;
+	cursor: pointer;
+	background: none;
+	text-transform: uppercase;
+	font-weight: bold;
+
+	-webkit-transition: all .1s linear;
+	-moz-transition: all .1s linear;
+	-o-transition: all .1s linear;
+	-ms-transition: all .1s linear;
+	transition: all .1s linear;
+}
+button.btn:active {
+	-webkit-transition: all .1s linear;
+	-moz-transition: all .1s linear;
+	-o-transition: all .1s linear;
+	-ms-transition: all .1s linear;
+	transition: all .1s linear;
+
+}
+button.btn.btn-primary {
+	background: #666;
+	color: rgba(255,255,255,.9);
+
+	-webkit-box-shadow: 0 0 6px 3px rgba(0,0,0,.05);
+	-moz-box-shadow: 0 0 6px 3px rgba(0,0,0,.05);
+	-o-box-shadow: 0 0 6px 3px rgba(0,0,0,.05);
+	box-shadow: 0 0 6px 3px rgba(0,0,0,.05);
+}
+button.btn:active {
+	background: #333;
+	color: rgba(255,255,255,.9);
+	border-color: #333;
+	box-shadow: none;
+}
+
+form div.alert div {
+	font-size: 12px;
+	color: #666;
+	margin-top: -24px;
+}
+
+form div.alert.alert-error div > * {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	color: rgb(231, 76, 60);
+	font-weight: 600;
+	opacity: 0.9;
+}
+
+form div.alert.alert-error div span {
+	margin-right: 5px;
+	font-size: 16px;
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
+
+.sk-folding-cube {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+.sk-folding-cube-small {
+  margin: 20px auto;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.sk-folding-cube .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+.sk-folding-cube .sk-cube:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+          animation: sk-foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+      -ms-transform-origin: 100% 100%;
+          transform-origin: 100% 100%;
+}
+.sk-folding-cube .sk-cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+          transform: scale(1.1) rotateZ(90deg);
+}
+.sk-folding-cube .sk-cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+          transform: scale(1.1) rotateZ(180deg);
+}
+.sk-folding-cube .sk-cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+          transform: scale(1.1) rotateZ(270deg);
+}
+.sk-folding-cube .sk-cube2:before {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+.sk-folding-cube .sk-cube3:before {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.sk-folding-cube .sk-cube4:before {
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+@-webkit-keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-foldCubeAngle {
+  0%, 10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+            transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  } 25%, 75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+            transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  } 90%, 100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+            transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}

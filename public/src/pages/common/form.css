@@ -1,0 +1,40 @@
+form {
+	padding: 50px 0;
+}
+
+form label,
+form input {
+	position: relative;
+	display: block;
+	width: 100%;
+	max-width: 250px;
+}
+
+form label {
+	margin-bottom: 8px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #999;
+	text-transform: uppercase;
+}
+form input {
+	margin-bottom: 25px;
+	padding-bottom: 4px;
+}
+
+form footer {
+	margin-top: 30px;
+	text-align: left;
+}
+
+form footer button {
+	margin-right: 10px;
+}
+
+form .loader {
+	position: relative;
+	display: block;
+	max-width: 250px;
+	text-align: center;
+	margin-top: 40px;
+}

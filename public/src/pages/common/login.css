@@ -1,0 +1,67 @@
+.wrapper.home {
+	position: absolute;,
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+.wrapper.home .left,
+.wrapper.home .right {
+	height: 100vh;
+	width: 50vw;
+}
+
+.wrapper.home .left {
+	background: #fff;
+	padding: 20vh 5vw;
+}
+
+.wrapper.home .left h1 {
+	font-size: 40px;
+	padding: 0;
+	margin-bottom: 10px;
+}
+.wrapper.home .left strong {
+	font-weight: 600;
+}
+
+
+.wrapper.home .left h3 {
+	font-size: 18px;
+	color: #999;
+	font-weight: 400;
+}
+
+.wrapper.home .left .loader {
+	position: relative;
+	display: block;
+	max-width: 250px;
+	text-align: center;
+	margin-top: 40px;
+}
+
+.wrapper.home .left > footer {
+	font-size: 12px;
+}
+
+.wrapper.home .right {
+	background-image: url(assets/img/background-1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+.wrapper.home .right::after {
+	position: absolute;
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: rgba(24,24,24,.6);
+
+	-webkit-box-shadow: 0 0 6px 3px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 0 6px 3px rgba(0,0,0,.2);
+	-o-box-shadow: 0 0 6px 3px rgba(0,0,0,.2);
+	box-shadow: 0 0 6px 3px rgba(0,0,0,.2);
+}

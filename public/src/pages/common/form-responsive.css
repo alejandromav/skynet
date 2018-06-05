@@ -1,0 +1,12 @@
+@media only screen and (max-width: 900px) {
+	form label,
+	form input,
+	form footer,
+	form .loader {
+		max-width: 100%;
+	}
+
+	form footer {
+		text-align: center;
+	}
+}

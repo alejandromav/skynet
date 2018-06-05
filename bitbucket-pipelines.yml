@@ -1,0 +1,61 @@
+# This is a sample build configuration for Docker.
+# Check our guides at https://confluence.atlassian.com/x/O1toN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: node:10
+
+definitions:
+  services:
+    mongo:
+      image: mongo
+
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Test
+          caches:
+            - node
+          script: # Modify the commands below to build your repository.
+            - npm install
+            - npm test
+          services:
+            - mongo
+
+      - step:
+          name: Deploy to develop
+          deployment: test
+          services:
+            - docker
+          script: # Modify the commands below to build your repository.
+            # Set $DOCKER_HUB_USERNAME and $DOCKER_HUB_PASSWORD as environment variables in repository settings
+            - export IMAGE_NAME=$DOCKER_HUB_USERNAME/skynet:develop
+
+            # build the Docker image (this will use the Dockerfile in the root of the repo)
+            - docker build -t $IMAGE_NAME .
+
+            # authenticate with the Docker Hub registry
+            - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
+
+            # push the new Docker image to the Docker registry
+            - docker push $IMAGE_NAME
+
+      - step:
+          name: Deploy to production
+          deployment: production
+          trigger: manual
+          services:
+            - docker
+          script: # Modify the commands below to build your repository.
+            # Set $DOCKER_HUB_USERNAME and $DOCKER_HUB_PASSWORD as environment variables in repository settings
+            - export IMAGE_NAME=$DOCKER_HUB_USERNAME/skynet:latest
+
+            # build the Docker image (this will use the Dockerfile in the root of the repo)
+            - docker build -t $IMAGE_NAME --build-arg .
+
+            # authenticate with the Docker Hub registry
+            - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
+
+            # push the new Docker image to the Docker registry
+            - docker push $IMAGE_NAME

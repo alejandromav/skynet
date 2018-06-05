@@ -1,0 +1,96 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "com.zara.dataminer": {
+      "root": "public/",
+      "sourceRoot": "public/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "public/dist",
+            "index": "public/src/index.html",
+            "main": "public/src/main.ts",
+            "tsConfig": "public/src/tsconfig.app.json",
+            "polyfills": "public/src/polyfills.ts",
+            "assets": [
+              "public/src/assets",
+              "public/src/favicon.ico"
+            ],
+            "styles": [
+              "public/src/styles.css",
+              "public/src/assets/css/animate.css",
+              "public/src/assets/css/linearicons.css"
+            ],
+            "scripts": [ ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "public/src/environments/environment.ts",
+                  "with": "public/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "com.zara.dataminer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "com.zara.dataminer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "com.zara.dataminer:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "com.zara.dataminer-e2e": {
+      "root": "",
+      "sourceRoot": "",
+      "projectType": "application"
+    }
+  },
+  "defaultProject": "com.zara.dataminer",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "styleext": "css"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  }
+}
