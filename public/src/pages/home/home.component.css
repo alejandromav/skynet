@@ -11,5 +11,46 @@ h1 {
 	font-weight: bold;
 	font-size: 2em;
 	padding: 0;
+}
 
+.left,
+.right {
+	width: 50%;
+	padding: 16px 0;
+}
+
+.tile {
+	position: relative;
+	display: block;
+	background: #fff;
+	padding: 12px;
+	margin-bottom: 12px;
+	border-radius: 4px;
+}
+.tile > * {
+	vertical-align: middle;
+}
+
+.tile .icon {
+	width: 40px;
+	height: 40px;
+}
+
+.tile > .content {
+	padding-left: 12px;
+}
+
+.tile > .content p {
+	margin: 0;
+}
+
+.tile > .content p.name {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 4px;
+	color: rgba(64,64,64,.8);
+}
+.tile > .content p.model {
+	font-size: 14px;
+	color: rgba(64,64,64,.8);
 }

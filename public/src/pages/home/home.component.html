@@ -1,4 +1,23 @@
 <div class="wrapper shadow">
 	<h1>Robots</h1>
 
+	<div class="left inline-block">
+		<div class="tile shadow-light robot animated fadeIn" *ngFor="let r of robots; trackBy: id">
+			<img class="inline-block icon" src="assets/img/robot-icon.png" alt="Robot icon"><div class="content inline-block">
+				<p class="name">{{ r['name'] }}</p>
+				<p class="model">{{ r['model'] || 'Unknown' }}</p>
+			</div>
+		</div>
+		<div class="loader">
+			<div *ngIf="loading" class="sk-folding-cube sk-folding-cube-small">
+				<div class="sk-cube1 sk-cube"></div>
+				<div class="sk-cube2 sk-cube"></div>
+				<div class="sk-cube4 sk-cube"></div>
+				<div class="sk-cube3 sk-cube"></div>
+			</div>
+		</div>
+	</div><div class="right inline-block">
+
+	</div>
+
 </div>
