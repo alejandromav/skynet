@@ -11,7 +11,7 @@ export class AuthGuardService implements CanActivate {
 	constructor(public router: Router, private userService: UserService) {}
 
 	canActivate(): boolean {
-		const session = this.userService.getSession();
+		const session = this.userService.getSavedSession();
 		const sessionIsValid = session && (new Date(session['expire_at'])).valueOf() > moment().valueOf();
 
 		if (sessionIsValid) {

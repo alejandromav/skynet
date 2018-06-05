@@ -24,8 +24,11 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		const session = this.userService.getSession();
+		const session = this.userService.getSavedSession();
+		this.getUserDetails(session);
+	}
 
+	getUserDetails(session) {
 		this.userService.getUserDetails(session['username'], session['token'])
 			.subscribe(
 				res => {

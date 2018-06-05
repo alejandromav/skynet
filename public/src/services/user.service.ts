@@ -14,6 +14,7 @@ const httpOptions = {
 })
 export class UserService {
 	private user$ = new Subject();
+	private session$ = new Subject();
 
 	constructor(private http: HttpClient) {}
 
@@ -47,14 +48,6 @@ export class UserService {
 		return this.http.get<User[]>(url, httpOptions);
 	}
 
-	saveSession(session) {
-		if (session) localStorage.setItem('session', JSON.stringify(session));
-	}
-
-	getSession() {
-		return JSON.parse(localStorage.getItem('session'));
-	}
-
 	deleteSession() {
 		localStorage.removeItem('session');
 	}
@@ -65,5 +58,20 @@ export class UserService {
 
 	setCurrentUser(user) {
 		this.user$.next(user);
+	}
+
+	getSession() {
+		return this.session$;
+	}
+
+	getSavedSession() {
+		return JSON.parse(localStorage.getItem('session'));
+	}
+
+	setSession(session) {
+		if (session) {
+			localStorage.setItem('session', JSON.stringify(session));
+			this.session$.next(session);
+		}
 	}
 }

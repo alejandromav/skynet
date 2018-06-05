@@ -53,9 +53,10 @@ export class LoginComponent implements OnInit {
 					res => {
 						this.loading = false;
 						this.loginForm.enable();
-						const session = res['data']['session'];
 
-						this.userService.saveSession(session);
+						const session = res['data']['session'];
+						this.userService.setSession(session);
+						
 						this.router.navigate(['']);
 					}, err => {
 						this.loading = false;

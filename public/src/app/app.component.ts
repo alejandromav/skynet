@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 	styleUrls: [ './app.component.css', './app-responsive.component.css' ]
 })
 export class AppComponent implements OnInit {
-	public user = {};
+	public session;
 	public menu = {
 		show: null
 	};
@@ -24,17 +24,18 @@ export class AppComponent implements OnInit {
 		// Removes preloader
 		const preLoader = document.getElementById('preloader');
 		preLoader.parentNode.removeChild(preLoader);
+		this.session = this.userService.getSavedSession();
 
-		this.userService.getCurrentUser().subscribe(user => {
-			this.user = user;
-			console.log('Current user: ', this.user);
+		this.userService.getSession().subscribe(session => {
+			this.session = session;
+			console.log('Current session: ', this.session);
 		});
 	}
 
 	logOut() {
 		try {
 			this.menu.show = null;
-			delete this.user;
+			delete this.session;
 			this.userService.deleteSession();
 			this.router.navigate(['/login']);
 		} catch (e) {

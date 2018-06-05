@@ -1,10 +1,10 @@
-<div id="navbar" class="fixed shadow">
+<div id="navbar" class="fixed shadow" *ngIf="session">
 	<span class="lnr-menu menu-icon" (click)="menu.show = !menu.show"></span><h1 class="title inline-block unselectable">SkyNet</h1>
 
 	<div class="user unselectable">
-		<img *ngIf="user.img" class="avatar inline-block" [src]="user.img" alt="User avatar" />
-		<span *ngIf="!user.img" class="inline-block avatar avatar-placeholder lnr-user"></span>
-		<p class="inline-block username">{{ user['username'] }}</p>
+		<!-- <img *ngIf="user.img" class="avatar inline-block" [src]="user.img" alt="User avatar" /> -->
+		<span class="inline-block avatar avatar-placeholder lnr-user"></span>
+		<p class="inline-block username">{{ session['username'] }}</p>
 	</div>
 </div>
 <div id="menu" class="animated shadow unselectable" *ngIf="menu.show != null" [class.slideInLeft]="menu.show === true" [class.slideOutLeft]="menu.show === false">
