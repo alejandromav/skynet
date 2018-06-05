@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 	styleUrls: [ './app.component.css', './app-responsive.component.css' ]
 })
 export class AppComponent implements OnInit {
-	public user;
+	public user = {};
 	public menu = {
 		show: null
 	};
