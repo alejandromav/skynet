@@ -18,6 +18,11 @@ export class HomeComponent implements OnInit {
 
 	}
 
+	getRandomDelay() {
+		const x = Math.round(Math.min(Math.random(),.3) * 1000)/1000;
+		return `${x}s`;
+	}
+
 	ngOnInit() {
 		const session = this.userService.getSession();
 

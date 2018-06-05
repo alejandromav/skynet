@@ -1,10 +1,12 @@
 .wrapper {
-	position: absolute;
+	position: relative;
 	display: block;
 	top: 50px;
 	width: 100vw;
 	min-height: calc(100vh - 50px);
 	padding: 20px 16px;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 h1 {
@@ -15,29 +17,28 @@ h1 {
 
 .left,
 .right {
-	width: 50%;
 	padding: 16px 0;
+	width: 50%;
 }
 
 .tile {
+	background: #fff;
+	margin-bottom: 16px;
+	border-radius: 4px;
+	overflow: hidden;
+	width: calc(50% - 8px);
+}
+.tile:nth-of-type(odd) {
+	margin-right: 16px;
+}
+
+.tile > img.card-bg {
 	position: relative;
 	display: block;
-	background: #fff;
-	padding: 12px;
-	margin-bottom: 12px;
-	border-radius: 4px;
+	width: 100%;
 }
-.tile > * {
-	vertical-align: middle;
-}
-
-.tile .icon {
-	width: 40px;
-	height: 40px;
-}
-
 .tile > .content {
-	padding-left: 12px;
+	padding: 16px;
 }
 
 .tile > .content p {
@@ -47,10 +48,27 @@ h1 {
 .tile > .content p.name {
 	font-size: 18px;
 	font-weight: bold;
-	margin-bottom: 4px;
-	color: rgba(64,64,64,.8);
+	margin-bottom: 2px;
+	color: rgba(64,64,64,1);
 }
 .tile > .content p.model {
 	font-size: 14px;
 	color: rgba(64,64,64,.8);
+}
+
+.tile footer {
+	padding: 16px;
+	padding-top: 20px;
+	/* text-align: right; */
+}
+.tile footer .btn {
+	border: none;
+	margin-right: 12px;
+	padding: 0;
+	opacity: .8;
+}
+.tile footer .btn:active {
+	background: none;
+	opacity: 1;
+	color: rgba(0, 0, 0, 1);
 }

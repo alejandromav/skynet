@@ -1,12 +1,17 @@
-<div class="wrapper shadow">
+<div class="wrapper">
 	<h1>Robots</h1>
 
 	<div class="left inline-block">
-		<div class="tile shadow-light robot animated fadeIn" *ngFor="let r of robots">
-			<img class="inline-block icon" src="assets/img/robot-icon.png" alt="Robot icon"><div class="content inline-block">
+		<div class="tile inline-block shadow-light robot animated flipInX" [style.animationDelay]="getRandomDelay()" *ngFor="let r of robots">
+			<img class="card-bg" src="assets/img/card-bg.png" alt="Robot icon">
+			<div class="content">
 				<p class="name">{{ r['name'] }}</p>
 				<p class="model">{{ r['model'] || 'Unknown' }}</p>
 			</div>
+			<footer>
+				<button class="btn" type="button" name="button">Editar</button>
+				<button class="btn red" type="button" name="button">Eliminar</button>
+			</footer>
 		</div>
 		<div class="loader">
 			<div *ngIf="loading" class="sk-folding-cube sk-folding-cube-small">
