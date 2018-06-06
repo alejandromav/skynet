@@ -2,7 +2,6 @@
 
 const isInTest = process.env.NODE_ENV === 'test';
 const MongoClient = require('mongodb').MongoClient;
-const ObjectID = require('mongodb').ObjectID;
 const assert = require('assert');
 const log4js = require('log4js');
 const logger = log4js.getLogger('UserService');
@@ -34,22 +33,6 @@ module.exports = class UserService {
 			const r = await client.db(DB).collection(COLLECTION).save(newUser, { w: 1 });
 			assert.equal(1, r['result']['ok']);
 			return newUser;
-		} catch (e) {
-			throw e;
-		} finally {
-			if (client) client.close();
-		}
-	}
-
-	// Get user by document id
-	async getUserById(id) {
-		let client;
-		try {
-			client = await this.connect();
-			const docs = await client.db(DB).collection(COLLECTION).find({ _id: new ObjectID(id) }).toArray();
-			logger.info(`Users found with id ${id}: ${docs.length}`);
-			const user = new User(docs[0]);
-			return user;
 		} catch (e) {
 			throw e;
 		} finally {

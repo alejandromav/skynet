@@ -3,6 +3,7 @@
 package-lock.json
 .docker.npmrc
 .env
+.nyc_output
 
 # compiled output
 /public/dist
