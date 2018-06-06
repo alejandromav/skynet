@@ -36,7 +36,7 @@ router.get('/:collection', authMiddleware, async (req, res) => {
 
 		const objects = await objectService.getObjects(collection, session['username']);
 
-		res.send({ data: objects });
+		res.send({ items: objects });
 	} catch (e) {
 		logger.error(e);
 		res.status(500).send({ err: 'Error getting objects' });
@@ -55,14 +55,14 @@ router.post('/:collection', authMiddleware, async (req, res) => {
 		const object = new ObjectClass(objectData);
 		const result = await objectService.saveObject(collection, object);
 
-		res.send({ data: result });
+		res.send({ item: result });
 	} catch (e) {
 		logger.error(e);
 
 		if (e.code === 400 && e.error) {
 			res.status(e.code).send({ err: e.error });
 		} else if (e.code === 'MODULE_NOT_FOUND') {
-			res.status(400).send({ err: 'Entity not found' });			
+			res.status(400).send({ err: 'Entity not found' });
 		} else {
 			res.status(500).send({ err: 'Error saving object' });
 		}
