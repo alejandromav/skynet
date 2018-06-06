@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const objectsRouter = require('./routes/objects');
 
 const app = express();
 
@@ -31,11 +32,12 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use(express.static(path.join(__dirname, 'public/dist')));
 app.use('/api/users', usersRouter);
+app.use('/api/objects', objectsRouter);
 app.use('/login', indexRouter);
 app.use('/signup', indexRouter);
 app.use('/', indexRouter);
+app.use(express.static(path.join(__dirname, 'public/dist')));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
