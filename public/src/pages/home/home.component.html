@@ -2,7 +2,7 @@
 	<h1>Robots</h1>
 
 	<div class="left inline-block">
-		<div class="tile inline-block shadow-light robot animated flipInX" [style.animationDelay]="getRandomDelay()" *ngFor="let r of robots">
+		<div class="tile inline-block shadow-light robot animated flipInX" [style.animationDelay]="r.animationDelay" *ngFor="let r of robots">
 			<img class="card-bg" src="assets/img/card-bg.png" alt="Robot icon">
 			<div class="content">
 				<p class="name">{{ r['name'] }}</p>

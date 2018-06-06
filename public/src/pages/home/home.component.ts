@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
 				this.loading = false;
 				const robots = res['items'];
 
+				// Mockup
 				this.robots = [
 					{ id: 1, name: 'Terminator', model: 'T-800 Model 101', created_at: new Date('2029-02-03 19:33:54') },
 					{ id: 2, name: 'Cameron', model: null, created_at: new Date('2029-06-13 21:33:54') },
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit {
 					{ id: 5, name: 'Myron Stark', model: 'T-888', created_at: new Date('2031-11-06 11:33:15') },
 					{ id: 6, name: 'T-1001', model: 'T-1001', created_at: new Date('2035-12-01 04:12:43') },
 				];
+				this.robots.map(r => r['animationDelay'] = this.getRandomDelay());
 			}, err => {
 				console.error(err);
 
