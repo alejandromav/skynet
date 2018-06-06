@@ -2,7 +2,7 @@
 	form label,
 	form input,
 	form footer,
-	form .loader {
+	.wrapper.home .left .loader {
 		max-width: 100%;
 	}
 
