@@ -1,8 +1,5 @@
 FROM node:9
 
-# Arguments
-ARG MONGODB_URL
-
 # Exclude the NPM cache from the image
 VOLUME /root/.npm
 
@@ -23,7 +20,6 @@ COPY . /usr/src/app
 # Environment variables
 ENV NODE_ENV "production"
 ENV PORT 80
-ENV MONGODB_URL=$MONGODB_URL
 
 # Compile app source
 RUN npm run build:docker
